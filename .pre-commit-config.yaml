@@ -1,0 +1,36 @@
+
+exclude: |
+  (?x)^(
+    ^.*\/fixtures\/|
+  )
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=700"]
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+  - repo: https://github.com/thlorenz/doctoc
+    rev: v2.2.0
+    hooks:
+      - id: doctoc
+        args: ["--title=## Contents", "--gitlab"]
+        description: "Generates table of contents for markdown files"
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.25 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+    - id: shellcheck
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1
+    hooks:
+      - id: go-mod-tidy
+      - id: go-fmt
+      - id: golangci-lint
+      - id: go-unit-tests
