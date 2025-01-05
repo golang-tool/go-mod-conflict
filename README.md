@@ -8,9 +8,9 @@ Detect dependencies which may conflict
 ## Usage
 
 ```shell
-go get -v -u github.com/golang-tool/go-mod-conflict
+git clone
 
-go-mod-conflict --go-mod-location <path-to-go-mod>
+go run main.go  --go-mod-location <path-to-go-mod>
 ```
 
 ## TODO
